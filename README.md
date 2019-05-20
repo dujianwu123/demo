@@ -1,21 +1,16 @@
 # demo
 
-> A Vue.js project
+> demo练习
 
-## Build Setup
+##一、初始化项目
+> npm install fastclick --save 解决移动端click事件300ms的延迟
 
-``` bash
-# install dependencies
-npm install
+> 使用 --  fastClick.attach(document.body) 绑定在body上
 
-# serve with hot reload at localhost:8080
-npm run dev
+> reast.css 清除默认样式
 
-# build for production with minification
-npm run build
+> border.css 解决1pxborder 如在下边框用1px边框，例如class="border-bottom"即可
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+> 配置styles_alias 别名 'styles_alias': resolve('src/assets/styles')
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+> 配置sass 用lang="scss"  npm i node-sass sass-loader --save-dev
