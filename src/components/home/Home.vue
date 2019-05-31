@@ -2,6 +2,7 @@
   <div class="warp">
     <router-link tag="button" to="/Magnifier">放大镜</router-link>
     <router-link tag="button" to="/Resume">个人简历H5</router-link>
+    <button @click="show">弹窗</button>
   </div>
 </template>
 
@@ -11,6 +12,11 @@ export default {
   data () {
     return {
     }
+  },
+  methods: {
+    show () {
+      this.$notify('请输入验证码', {delay: 5000})
+    }
   }
 }
 </script>
@@ -19,6 +25,9 @@ export default {
 <style lang="scss" scoped>
   .warp {
     margin: 20px;
+    width: 100%;
+    height: 100%;
+    font-size: .24rem;
     button {
       border: 1px solid #ccc;
       background: #fff;
