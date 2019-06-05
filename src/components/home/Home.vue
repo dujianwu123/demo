@@ -2,7 +2,11 @@
   <div class="warp">
     <router-link tag="button" to="/Magnifier">放大镜</router-link>
     <router-link tag="button" to="/Resume">个人简历H5</router-link>
+<<<<<<< HEAD
     <button @click="show">弹窗</button>
+=======
+    <router-link tag="button" to="/test">Test</router-link>
+>>>>>>> test
   </div>
 </template>
 
