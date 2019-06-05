@@ -6,7 +6,7 @@
         <h2>H5个人简历</h2>
       </div>
       <div class="progress">
-        <div class="cur"></div>
+        <div class="current"></div>
       </div>
     </section>
   </main>
@@ -60,6 +60,33 @@ html,body {
           font-size: .24rem;
         }
       }
+      .progress {
+        position: absolute;
+        width: 4.6rem;
+        height: .3rem;
+        background: #fff;
+        top: 50%;
+        left: 50%;
+        margin: .85rem 0 0 -2.3rem;
+        .current {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 50%;
+          height: 100%;
+          background: -webkit-linear-gradient(left bottom,  #5CB85C 0%, #5CB85C 25%, #74C274 25%, #74C274 50%, #5CB85C 50%, #5CB85C 75%, #74C274 75%, #74C274 100%);
+          background-size: .3rem .3rem;
+          animation: loadingMove 1s linear 0s infinite both;
+        }
+      }
+    }
+  }
+  @keyframes loadingMove {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 -.3rem;
     }
   }
 </style>
