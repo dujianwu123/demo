@@ -12,8 +12,23 @@
   </main>
 </template>
 <script>
+import axios from 'axios'
 export default {
-  name: 'Resume'
+  name: 'Resume',
+  mounted () {
+    this.getInitImg()
+  },
+  methods: {
+    getInitImg () {
+      axios.get('/api/resume.json').then(this.getInitImgSucc)
+    },
+    getInitImgSucc (res) {
+      res = res.data
+      if (res.ret && res.resumeDataImage) {
+        console.log($('.title').get(0))
+      }
+    }
+  }
 }
 </script>
 <style>

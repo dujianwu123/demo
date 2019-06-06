@@ -6,6 +6,7 @@ import 'styles_alias/reset.css'
 import 'styles_alias/border.css'
 import notify from './plugin/notify.js'
 import 'js_alias/rem.js'
+import $ from 'jquery'
 Vue.config.productionTip = false
 // 自己封装的弹窗组件简写
 Vue.use(notify, {delay: 2000})
