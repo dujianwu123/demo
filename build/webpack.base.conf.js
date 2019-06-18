@@ -35,7 +35,6 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'jquery':'jquery',
       '@': resolve('src'),
       'styles_alias': resolve('src/assets/styles'),
       'js_alias': resolve('src/assets/js')
@@ -91,11 +90,5 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  },
-  plugins:[
-    new webpack.ProvidePlugin({
-      jQuery:"jquery",
-      $:"jquery"
-    })
-  ]
+  }
 }

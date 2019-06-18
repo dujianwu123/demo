@@ -15,6 +15,14 @@
 import axios from 'axios'
 export default {
   name: 'Resume',
+  data () {
+    return {
+      n: 0,
+      imgData: null,
+      delayTimer: null,
+      len: 0
+    }
+  },
   mounted () {
     this.getInitImg()
   },
@@ -25,8 +33,47 @@ export default {
     getInitImgSucc (res) {
       res = res.data
       if (res.ret && res.resumeDataImage) {
-        console.log($('.title').get(0))
+        this.imgData = res.resumeDataImage
+        this.len = this.imgData.length
+        this.run(this.done)
+        this.maxDelay(this.done)
       }
+    },
+    run (callback) {
+      this.imgData.forEach(item => {
+        let tempImg = new Image()
+        tempImg.onload = () => {
+          tempImg = null
+          $('.current').css('width', ((++this.n) / this.len) * 100 + '%')
+          // 加载完成:执行回调函数(让当前LOADING页面消失)
+          if (this.n === this.len) {
+            clearTimeout(this.delayTimer)
+            callback && callback()
+          }
+        }
+        let src = require(`../../${item}`)
+        tempImg.src = src
+      })
+    },
+    // 设置最长等待时间（假设10s，到达10s我们看加载多少了，如果已经到达90%以上，可以正常访问内容了，如果不足这个比例，直接提示用户当前网络状况不佳，稍后重试）
+    maxDelay (callback) {
+      this.delayTimer = setTimeout(() => {
+        clearTimeout(this.delayTimer)
+        // 完成大于90% 就算完成
+        if (this.n / this.len >= 0.9) {
+          $('.current').css('width', '100%')
+          callback && callback()
+          return
+        }
+        alert(' 非常遗憾，当前您的网络状况不佳，请稍后在试！')
+      // window.location.href = 'http://www.qq.com';//=>此时我们不应该继续加载图片，而是让其关掉页面或者是跳转到其它页面
+      }, 10000)
+    },
+    done () {
+      // 停留一秒钟在进入下一环节
+      setTimeout(() => {
+        $('.loadingBox').remove()
+      }, 1000)
     }
   }
 }
@@ -87,11 +134,12 @@ html,body {
           position: absolute;
           top: 0;
           left: 0;
-          width: 50%;
+          width: 0%;
           height: 100%;
           background: -webkit-linear-gradient(left bottom,  #5CB85C 0%, #5CB85C 25%, #74C274 25%, #74C274 50%, #5CB85C 50%, #5CB85C 75%, #74C274 75%, #74C274 100%);
           background-size: .3rem .3rem;
           animation: loadingMove 1s linear 0s infinite both;
+          transition: .3s;
         }
       }
     }
