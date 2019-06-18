@@ -24,6 +24,11 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // 解决zepto在main中引入不使用的报错
+    "no-unused-vars": 'off'
+  },
+  globals:{
+    $: true
   }
 }
