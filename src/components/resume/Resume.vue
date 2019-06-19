@@ -9,6 +9,22 @@
         <div class="current"></div>
       </div>
     </section>
+    <!-- PHONE -->
+    <section class="phoneBox">
+      <h2>
+        <img src="../../assets/img/resume/zf_phoneLogo.png" alt="">
+        <span>00:00</span>
+      </h2>
+      <div class="answer">
+        <a href="javascript:;" class="markLink"></a>
+      </div>
+      <div class="hang">
+        <a href="javascript:;" class="markLink"></a>
+      </div>
+      <!-- 音频 -->
+      <audio src="../../assets/audio/resume/bell.mp3" loop preload="none" ref="answerBell"></audio>
+      <audio src="../../assets/audio/resume/say.mp3" preload="none" ref="introduction"></audio>
+    </section>
   </main>
 </template>
 <script>
@@ -142,6 +158,10 @@ html,body {
           transition: .3s;
         }
       }
+    }
+    .phoneBox {
+      @include warpBox;
+      display: block;
     }
   }
   @keyframes loadingMove {
