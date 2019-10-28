@@ -8,7 +8,10 @@ import notify from './plugin/notify.js'
 import 'js_alias/rem.js'
 import $ from 'zepto-webpack'
 import VueTouch from 'vue-touch'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 Vue.config.productionTip = false
+Vue.use(MintUI)
 // 自己封装的弹窗组件简写
 Vue.use(notify, {delay: 2000})
 // 移动端点击延迟

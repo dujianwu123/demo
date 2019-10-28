@@ -6,7 +6,8 @@ import Resume from '@/components/resume/Resume'
 import Test from '@/components/test_demo/Test'
 import ShopingCart from '@/components/test_demo/components/ShopingCart'
 import Kinput from '@/components/test_demo/components/Kinput'
-
+import TestCar from '@/components/test_demo/components/ShopingCart2'
+import XiaLa from '@/components/xiala/index'
 Vue.use(Router)
 
 export default new Router({
@@ -42,6 +43,16 @@ export default new Router({
       path: '/kinput',
       name: 'Kinput',
       component: Kinput
+    },
+    {
+      path: '/testCar',
+      name: 'TestCar',
+      component: TestCar
+    },
+    {
+      path: '/xiala',
+      name: 'XiaLa',
+      component: XiaLa
     }
   ]
 })
